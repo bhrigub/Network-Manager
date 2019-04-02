@@ -34,6 +34,7 @@ app.controller('myController',function ($scope) {
     $scope.name='';
     $scope.description='';
     $scope.ip='';
+    alert("Row Added");
   };
 
   //Toggle the removee multiple rows or single element option
@@ -57,6 +58,7 @@ app.controller('myController',function ($scope) {
       )
       if ($scope.errorUnique===false){
       $scope.checkUniqueness=true;
+      alert("Name Available");
       }
       };
       //Form validation function

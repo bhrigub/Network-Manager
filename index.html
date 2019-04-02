@@ -81,30 +81,30 @@
                   <td><label>{{noms.id}}</label></td>
                   <td><span data-ng-hide="editMode"><label>{{noms.name}}</label></span>
                   <!--Edit mode section. Display toggled using ng-show feature. Pattern restriction provided using ng-pattern-->
-                  <input data-ng-model="noms.name" data-ng-show="editMode" name="name" ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-required type="text" />
+                  <input id="inputCheck" data-ng-model="noms.name" data-ng-show="editMode" name="name" ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-required type="text" />
                   <!--Button to check name availibility-->
                   <br /><button class="btn btn-primary" data-ng-hide="!editMode" ng-click="checkNameDuplicate2(noms.name)" type="submit">Check Availibility</button>
-                  <br /><span data-ng-show='noms.name.$dirty && errorUnique2' style="color:red">Name already exists.</span>
+                  <br /><span id="removeHide" data-ng-show='noms.name.ng-dirty && errorUnique2' style="color:red">Name already exists.</span>
                   <br />
                   <!--Error generation section if the input is not valid int he field-->
-                  <div ng-show='noms.name.$dirty && noms.name.$invalid' style="color:red">
+                  <div id="removeHide" ng-show='noms.name.ng-dirty && noms.name.ng-invalid' style="color:red">
                   <br /><span>Error: This field is mandatory. Input should be alphanumeric and can contain space.</span>
                   </div>
                   </td>
                   <td><span data-ng-hide="editMode"><label>{{noms.description}}</label></span>
                   <!--Edit mode section. Display toggled using ng-show feature. Pattern restriction provided using ng-pattern-->
-                  <textarea class="form-control" data-ng-model="noms.description" data-ng-show="editMode" id="inputDescription" name="description" ng-pattern="/^[^'\x22]*$/" rows="3" type="text"></textarea>
+                  <textarea id="textareaCheck" class="form-control" data-ng-model="noms.description" data-ng-show="editMode" id="inputDescription" name="description" ng-pattern="/^[^'\x22]*$/" rows="3" type="text"></textarea>
                   <br />
                   <!--Error generation section if the input is not valid int he field-->
-                  <span class="invalid" data-ng-show="noms.description.$dirty && noms.description.$invalid" style="color:red">Error: No quotes allowed.
+                  <span class="invalid" id="removeHide" data-ng-show="noms.description.ng-dirty && noms.description.ng-invalid" style="color:red">Error: No quotes allowed.
                   </span>
                   </td>
                   <td><span data-ng-hide="editMode"><label>{{noms.ip}}</label></span>
                   <!--Edit mode section. Display toggled using ng-show feature. Pattern restriction provided using ng-pattern-->
-                  <input data-ng-model="noms.ip" data-ng-show="editMode" name="ip" ng-pattern="/^([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))$/" type="text" />
+                  <input id="inputCheck" data-ng-model="noms.ip" data-ng-show="editMode" name="ip" ng-pattern="/^([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))$/" type="text" />
                   <br />
                   <!--Error generation section if the input is not valid in the input field-->
-                  <span data-ng-show="noms.ip.$dirty && noms.ip.$invalid" style="color:red"><br />Error: Invalid IP. IP should be in range like 0.0.0.0 – 255.255.255.255.
+                  <span id="removeHide" data-ng-show="noms.ip.ng-dirty && noms.ip.ng-invalid" style="color:red"><br />Error: Invalid IP. IP should be in range like 0.0.0.0 – 255.255.255.255.
                   </span>
                   </td>
                   <td> <button class="btn btn-primary" data-ng-hide="editMode" ng-click="editMode=true; editObject(noms)" type="submit">Edit</button>
@@ -208,6 +208,7 @@
     <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
+        <br><br>
       </div>
   </div>
 </div>
